@@ -12,19 +12,19 @@
             </column>
 
             <column name="title" type="varchar(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="false"></constraints>
             </column>
 
             <column name="description" type="varchar(255)">
-                <constraints  nullable="false">
+                <constraints  nullable="false"></constraints>
             </column>
 
-            <column name="image" type="varchar"/>
+            <column name="image" type="varchar"></column>
           
-             <column name="prix" type="decimal(21.2)">
-                <constraints  nullable="false">
+             <column name="prix" type="decimal(21,2)">
+                <constraints nullable="false"></constraints>
             </column>
         </createTable>
     </changeSet>
 
-</databaseChangeLogW>
+</databaseChangeLog>
