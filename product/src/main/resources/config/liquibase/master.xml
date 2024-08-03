@@ -11,5 +11,7 @@
     <property name="datetimeType" value="datetime" dbms="postgresql"/>
 
     <include file="config/liquibase/changelog/01-Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/02-Order.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/03-Payment.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

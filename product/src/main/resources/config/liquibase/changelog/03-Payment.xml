@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    
+
+   <changeSet id="20240803" author="johannes">
+        <createTable tableName="payment">
+            <column name="uuid" type="varchar">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="order_id" type="varchar(255)">
+                <constraints nullable="false"></constraints>
+            </column>
+
+            <column name="cost" type="decimal(21,2)">
+                <constraints  nullable="false"></constraints>
+            </column>
+          
+             <column name="card_number" type="bigint">
+                <constraints nullable="false"></constraints>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint constraintName="payment_order_id_fk"
+         referencedTableName="order" referencedColumnNames="uuid"
+         baseTableName="payment" baseColumnNames="order_id"/>
+    </changeSet>
+
+</databaseChangeLog>
