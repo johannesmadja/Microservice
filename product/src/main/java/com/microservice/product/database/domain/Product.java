@@ -21,6 +21,9 @@ public class Product {
     @Column
     private String uuid;
 
+    @Column(name = "title")
+    private String title;
+
     @Column(name = "description")
     private String description;
 
@@ -28,5 +31,17 @@ public class Product {
     private String image;
 
     @Column(name = "prix")
-    private BigDecimal prix;
+    private BigDecimal price;
+
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "uuid='" + uuid + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

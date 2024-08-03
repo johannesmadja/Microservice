@@ -7,7 +7,7 @@
 
    <changeSet id="20240803" author="johannes">
         <createTable tableName="order">
-            <column name="uuid" type="varchar">
+            <column name="uuid" type="varchar" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
