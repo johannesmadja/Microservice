@@ -7,7 +7,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.2</version>
 		<relativePath/>  -->
-		<groupId>com.microservice.eservice</groupId>
+		<groupId>com.microservice</groupId>
     	<artifactId>eservice</artifactId>
     	<version>1.1.0</version>
 	</parent>
