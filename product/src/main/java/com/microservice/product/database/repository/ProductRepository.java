@@ -13,6 +13,16 @@ import com.microservice.product.database.domain.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, String>{
+
+    /**
+     * Updates a product in the database.
+     *
+     * @param id          the unique identifier of the product to update
+     * @param title       the new title of the product
+     * @param description the new description of the product
+     * @param image       the new image of the product
+     * @param price       the new price of the product
+     */
     @Modifying
     @Query("UPDATE Product p set p.title = :title, p.description = :description, p.image = :image, p.price = :price where p.uuid = :id")
     public void update(

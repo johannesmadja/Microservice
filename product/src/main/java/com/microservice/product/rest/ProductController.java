@@ -39,8 +39,8 @@ public class ProductController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<ProductDto> getProduct(@PathVariable String uuid) {
-        return ResponseEntity.ok(productMapper.maProductDto(productService.getProduct(uuid)));
+    public ResponseEntity<ProductDto> getProduct(@PathVariable String id) {
+        return ResponseEntity.ok(productMapper.maProductDto(productService.getProduct(id)));
     }
 
     @PostMapping
@@ -57,7 +57,7 @@ public class ProductController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<String> updateProduct(@PathVariable String uuid, @RequestBody Product product) {
+    public ResponseEntity<String> updateProduct(@PathVariable String id, @RequestBody Product product) {
         productService.updateProduct(product);
         return ResponseEntity.ok("Product updated successfully");
     }

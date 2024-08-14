@@ -10,7 +10,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ProductDto {
-    private String uuid;
     private String title;
     private String description;
     private String image;

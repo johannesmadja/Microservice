@@ -1,13 +1,11 @@
-package com.microservice.product.database.domain;
+package com.microservice.order.database;
 
 import java.math.BigDecimal;
 
-import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +21,6 @@ import lombok.Setter;
 public class Product {
 
     @Id
-    @UuidGenerator()
     @Column
     private String uuid;
 
@@ -49,10 +46,5 @@ public class Product {
                 ", image='" + image + '\'' +
                 ", price=" + price +
                 '}';
-    }
-
-    @PrePersist
-    public void prePersist() {
-        this.uuid = this.getClass().getSimpleName().toLowerCase() + this.uuid;
     }
 }

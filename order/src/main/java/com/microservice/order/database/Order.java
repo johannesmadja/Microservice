@@ -1,12 +1,14 @@
-package com.microservice.product.database.domain;
+package com.microservice.order.database;
 
-import java.math.BigDecimal;
+import java.time.Instant;
 
 import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -15,39 +17,38 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "order")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "product")
-public class Product {
-
+public class Order {
     @Id
     @UuidGenerator()
-    @Column
+    @Column(name = "uuid")
     private String uuid;
 
-    @Column(name = "title")
-    private String title;
+    @OneToMany
+    @JoinColumn(name = "product_id")
+    private Product productId;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "order_date")
+    private Instant orderDate;
 
-    @Column(name = "image")
-    private String image;
+    @Column(name = "quantity")
+    private Integer quantity;
 
-    @Column(name = "prix")
-    private BigDecimal price;
-
+    @Column(name = "order_paid")
+    private Boolean orderPaid;
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "Order{" +
                 "uuid='" + uuid + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
-                ", price=" + price +
+                ", productId=" + productId +
+                ", orderDate=" + orderDate +
+                ", quantity=" + quantity +
+                ", orderPaid=" + orderPaid +
                 '}';
     }
 
