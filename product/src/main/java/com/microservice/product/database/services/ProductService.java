@@ -37,13 +37,13 @@ public class ProductService {
      * Save product
      */
     public Product saveProduct(Product product) {
-        Product pro = new Product();
-        pro.setTitle(product.getTitle());
-        pro.setDescription(product.getDescription());
-        pro.setImage(product.getImage());
-        pro.setPrice(product.getPrice());
+        // Product pro = new Product();
+        // pro.setTitle(product.getTitle());
+        // pro.setDescription(product.getDescription());
+        // pro.setImage(product.getImage());
+        // pro.setPrice(product.getPrice());
         
-        return productRepository.save(pro);
+        return productRepository.save(product);
     }
 
     public void updateProduct(Product product) {
