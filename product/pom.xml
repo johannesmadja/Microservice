@@ -47,11 +47,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.24</version>
+		    <scope>compile</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -75,6 +78,8 @@
 		<dependency>
 			<groupId>com.microservice.common</groupId>
 			<artifactId>utils</artifactId>
+			<scope>system</scope>
+			<systemPath>C:/Users/Johannes.MADJA/.m2/repository/com/microservice/common/utils/1.0.0/utils-1.0.0.jar</systemPath>
 			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
@@ -118,6 +123,11 @@
 							<artifactId>mapstruct-processor</artifactId>
 							<version>1.5.5.Final</version>
 						</path>
+						  <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>1.18.20</version>
+                            </path>
 					</annotationProcessorPaths>
 				</configuration>
         	</plugin>
