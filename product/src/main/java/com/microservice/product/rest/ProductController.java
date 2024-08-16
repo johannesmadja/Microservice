@@ -1,8 +1,9 @@
 package com.microservice.product.rest;
 
-import java.net.URI;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ import com.microservice.product.services.ProductService;
 @RequestMapping(path = "/products")
 public class ProductController {
 
+    private final Logger log = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
     private final ProductMapper productMapper;
 
@@ -44,8 +46,9 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<String> addProduct(@RequestBody Product product) {
-        Product savedProduct = productService.saveProduct(product);
+    public ResponseEntity<String> addProduct(@RequestBody ProductDto productDto) {
+        log.info("Enrégistrement du Product: {}", productDto);
+        Product savedProduct = productService.saveProduct(productDto);
 
         Product existingProduct = productService.getProduct(savedProduct.getUuid());
         if (existingProduct != null) {

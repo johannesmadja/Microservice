@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 
 import org.hibernate.annotations.UuidGenerator;
 
+import com.microservice.common.utils.generator.IdGenerator;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,13 +19,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product")
 public class Product {
 
     @Id
-    @UuidGenerator()
     @Column
     private String uuid;
 
@@ -51,8 +51,7 @@ public class Product {
                 '}';
     }
 
-    @PrePersist
-    public void prePersist() {
-        this.uuid = this.getClass().getSimpleName().toLowerCase() + this.uuid;
+    public Product() {
+        this.uuid = IdGenerator.generate(this.getClass().getSimpleName().toLowerCase());
     }
 }

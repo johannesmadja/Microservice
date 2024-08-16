@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.microservice.product.database.ProductDto;
 import com.microservice.product.database.domain.Product;
 import com.microservice.product.repository.ProductRepository;
 
@@ -36,12 +37,12 @@ public class ProductService {
     /*
      * Save product
      */
-    public Product saveProduct(Product product) {
-        // Product pro = new Product();
-        // pro.setTitle(product.getTitle());
-        // pro.setDescription(product.getDescription());
-        // pro.setImage(product.getImage());
-        // pro.setPrice(product.getPrice());
+    public Product saveProduct(ProductDto productDto) {
+        Product product = new Product();
+        product.setTitle(productDto.getTitle());
+        product.setDescription(productDto.getDescription());
+        product.setImage(productDto.getImage());
+        product.setPrice(productDto.getPrice());
         
         return productRepository.save(product);
     }
