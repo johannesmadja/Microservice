@@ -1,4 +1,4 @@
-package com.microservice.order.database;
+package com.microservice.order.database.domain;
 
 import java.math.BigDecimal;
 

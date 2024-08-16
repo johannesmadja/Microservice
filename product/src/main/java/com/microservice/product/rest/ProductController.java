@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservice.product.database.ProductDto;
 import com.microservice.product.database.domain.Product;
 import com.microservice.product.database.mapping.ProductMapper;
-import com.microservice.product.database.services.ProductService;
+import com.microservice.product.services.ProductService;
 
 @RestController
 @RequestMapping(path = "/products")

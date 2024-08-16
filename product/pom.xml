@@ -78,8 +78,6 @@
 		<dependency>
 			<groupId>com.microservice.common</groupId>
 			<artifactId>utils</artifactId>
-			<scope>system</scope>
-			<systemPath>C:/Users/Johannes.MADJA/.m2/repository/com/microservice/common/utils/1.0.0/utils-1.0.0.jar</systemPath>
 			<version>1.0.0</version>
 		</dependency>
 	</dependencies>

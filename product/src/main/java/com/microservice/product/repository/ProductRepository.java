@@ -1,4 +1,4 @@
-package com.microservice.product.database.repository;
+package com.microservice.product.repository;
 
 import java.math.BigDecimal;
 

@@ -18,3 +18,7 @@ mvn liquibase:update
 ```shell
 mvn liquibase:update -Dliquibase.properties=liquibase.properties
 ```
+*Installation locale du jar 
+```shell
+mvn install:install-file -Dfile=path/to/jar/utils-1.0.0.jar -DgroupId="com.microservice.common" -DartifactId=utils -Dversion="1.0.0" -Dpackaging=jar
+```

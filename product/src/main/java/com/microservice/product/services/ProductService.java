@@ -1,11 +1,11 @@
-package com.microservice.product.database.services;
+package com.microservice.product.services;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.microservice.product.database.domain.Product;
-import com.microservice.product.database.repository.ProductRepository;
+import com.microservice.product.repository.ProductRepository;
 
 @Service
 public class ProductService {

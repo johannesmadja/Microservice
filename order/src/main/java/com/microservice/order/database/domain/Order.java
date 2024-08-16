@@ -1,6 +1,7 @@
-package com.microservice.order.database;
+package com.microservice.order.database.domain;
 
 import java.time.Instant;
+import java.util.List;
 
 import org.hibernate.annotations.UuidGenerator;
 
@@ -30,7 +31,7 @@ public class Order {
 
     @OneToMany
     @JoinColumn(name = "product_id")
-    private Product productId;
+    private List<Product> productId;
 
     @Column(name = "order_date")
     private Instant orderDate;
