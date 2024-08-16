@@ -1,14 +1,27 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+
 <head>
-   <title>Mcommerce</title>
-   <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+  <title>Mcommerce</title>
+  <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
 </head>
 
 <body>
+
     <div class="container">
-       <h1>Application Mcommerce</h1>
+      <h1>Application Mcommerce</h1>
+      <div class="row">
+          <div th:each="product : ${products}" class="col-md-4 my-1">
+            <a th:href="@{|/details-product/${product.uuid}|}" >
+                <img th:src="'data:image/png;base64,' + ${product.image}"  class="card-img-top" alt="air max"/>
+                <p th:text= "${product.title}"></p>
+            </a>
+          </div>
+      </div>
     </div>
+
     <script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+
 </body>
-</html>
+</html> 
