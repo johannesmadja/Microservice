@@ -56,7 +56,7 @@ public class ProductController {
             // URI location = URI.create("/products/" + savedProduct.getUuid());
             // return ResponseEntity.created(location).build();
         }
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.notFound().build();
     }
 
     @PutMapping(value = "/{id}")

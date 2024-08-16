@@ -22,3 +22,26 @@ mvn liquibase:update -Dliquibase.properties=liquibase.properties
 ```shell
 mvn install:install-file -Dfile=path/to/jar/utils-1.0.0.jar -DgroupId="com.microservice.common" -DartifactId=utils -Dversion="1.0.0" -Dpackaging=jar
 ```
+
+**Désactiver la connexion automatique à une base de donnée**
+*Option 1 : Dans la classe principale*
+```java
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
+public class YourApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(YourApplication.class, args);
+    }
+}
+
+```
+
+*Option 2 : Dans le application properties*
+```properties
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+```
+
+*Option 3 : Désactiver le spring.config.import*
+```properties
+spring.config.import=optional:configserver:
+```
