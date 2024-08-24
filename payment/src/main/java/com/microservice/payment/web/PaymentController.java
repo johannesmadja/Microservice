@@ -29,9 +29,12 @@ public class PaymentController {
     }
 
     @PostMapping
-    public ResponseEntity<PaymentDto> createPayment(Payment payment) {
+    public ResponseEntity<Object> createPayment(Payment payment) {
 
-        PaymentDto savedPayment = this.paymentMapper.mPayamentDto(paymentService.createPayment(payment));
-        return new ResponseEntity<>(savedPayment, HttpStatus.CREATED);
+        Payment savedPayment = paymentService.createPayment(payment);
+        if (savedPayment != null) {
+            return new ResponseEntity<>(this.paymentMapper.mPayamentDto(savedPayment), HttpStatus.CREATED);
+        }
+        return ResponseEntity.badRequest().body("La commande avec l'identifiant " + payment.getOrderId().getUuid() + " est introuvable");
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class OrderController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<OrderDto> getOrder(@PathVariable String id) {
+    public ResponseEntity<OrderDto> getOrder(@PathVariable("id") String id) {
         OrderDto orderDto = orderMapper.mapOrderToDto(this.orderService.getOrder(id));
 
         return new ResponseEntity<>(orderDto, HttpStatus.OK);
@@ -41,5 +42,14 @@ public class OrderController {
         OrderDto orderDto = orderMapper.mapOrderToDto(this.orderService.createOrder(order));
 
         return new ResponseEntity<>(orderDto, HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Object> updateOrder(@PathVariable("id") String orderId) {
+        if (this.orderService.existsOrder(orderId)) {
+            this.orderService.update(orderId);
+            return ResponseEntity.ok("Order updated successfully");
+        }
+        return ResponseEntity.badRequest().body("Order not found");
     }
 }

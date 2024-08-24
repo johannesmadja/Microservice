@@ -14,7 +14,7 @@ public interface MicroserviceProduitsProxy {
     /**
      * Retrieves a list of products from the microservice 'microservice-product' at 'http://localhost:8001'.
      *
-     * @return         	A list of ProductBean objects representing the products.
+     * @return A list of ProductBean objects representing the products.
      */
     @GetMapping("/products")
     List<ProductBean> getProducts();
@@ -23,7 +23,7 @@ public interface MicroserviceProduitsProxy {
      * Retrieves a product by its unique identifier from the microservice 'microservice-product'.
      *
      * @param  id	Unique identifier of the product
-     * @return     	A ProductBean object representing the product
+     * @return A ProductBean object representing the product
      */
     @GetMapping("/products/{id}")
     ProductBean getProductByUuid(@PathVariable("id") String id);

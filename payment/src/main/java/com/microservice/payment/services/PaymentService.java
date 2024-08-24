@@ -17,7 +17,7 @@ public class PaymentService {
 
     public Payment createPayment(Payment payment) {
         if(this.paymentRepository.existsById(payment.getOrderId().getUuid())) {
-            throw new IllegalStateException("Payment already exists");
+            return null;    
         }
 
         return paymentRepository.save(payment);

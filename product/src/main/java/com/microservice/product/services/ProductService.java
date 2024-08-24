@@ -34,6 +34,17 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+
+    /**
+     * Checks if a product exists in the database by its unique identifier.
+     *
+     * @param uuid  the unique identifier of the product
+     * @return      true if the product exists, false otherwise
+     */
+    public boolean existsProduct(String uuid) {
+        return productRepository.existsById(uuid);
+    }
+
     /*
      * Save product
      */
@@ -47,8 +58,8 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public void updateProduct(Product product) {
-        productRepository.update(product.getUuid(), product.getTitle(), product.getDescription(), product.getImage(), product.getPrice());
+    public void updateProduct(String id , Product product) {
+        productRepository.update(id, product.getTitle(), product.getDescription(), product.getImage(), product.getPrice());
     }
 
     /* 

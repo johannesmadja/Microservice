@@ -3,25 +3,35 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="fr">
 
 <head>
-  <title>Mcommerce</title>
-  <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+    <style>
+        .product-card {
+            margin-bottom: 15px; /* Espace entre les cartes */
+        }
+        .product-card img {
+            width: 100%; /* Assure que l'image remplit la largeur de son conteneur */
+            height: auto; /* Maintient le ratio de l'image */
+            max-height: 200px; /* Limite la hauteur des images */
+            object-fit: cover; /* Couvre l'espace sans déformation */
+        }
+    </style>
 </head>
-
 <body>
-
     <div class="container">
-      <h1>Application Mcommerce</h1>
-      <div class="row">
-          <div th:each="product : ${products}" class="col-md-4 my-1">
-            <a th:href="@{|/details-product/${product.uuid}|}" >
-                <img th:src="'data:image/png;base64,' + ${product.image}"  class="card-img-top" alt="air max"/>
-                <p th:text= "${product.title}"></p>
-            </a>
-          </div>
-      </div>
+        <h1>Application Mcommerce</h1>
+        <div class="row">
+            <div th:each="product : ${products}" class="col-md-4 product-card">
+                <a th:href="@{|/details-product/${product.uuid}|}">
+                    <div class="card">
+                        <img th:src="'data:image/png;base64,' + ${product.image}" class="card-img-top" alt="air max"/>
+                        <div class="card-body">
+                            <p class="card-text" th:text="${product.title}"></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
-
 </body>
 </html> 

@@ -32,6 +32,6 @@ public class Payment {
     private BigDecimal cost;
 
     @Column(name = "card_number")
-    private Integer cardNumber;
+    private Long cardNumber;
 
 }
